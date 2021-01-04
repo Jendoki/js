@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="exo.js"></script>
+    <title>Exos</title>
+</head>
+<body>
+    <p>Exercice 1 :</p>
+    <script type="text/javascript">
+        var todaysDate = new Date();
+        document.write("La date d'aujourd'hui est : ");
+        document.write(todaysDate.getDate()+"/"+(todaysDate.getMonth()+1)+"/"+todaysDate.getFullYear())
+        document.write("<br/>");
+        var time = new Date();
+        var rnTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+        document.write("L'heure est : ", rnTime);
+    </script>
+
+    <p>Exercice 2 :</p>
+    <script>
+        function return1st(arr){
+            return arr[0];
+        }
+
+        function add(a, b){
+            return a + b;
+        }
+
+        function remove(a, b){
+            return a - b;
+        }
+
+        function multiply(a, b){
+            return a * b;
+        }
+
+        function convertToSeconds(nbr){
+            return nbr*60;
+        }
+
+        function convertToDays(years){
+            return years*365;
+        }
+
+        console.log(return1st(['someday', 'somewhere', 'somehow']));
+        console.log(add(3, 2));
+        console.log(remove(3, 2));
+        console.log(multiply(3, 2));
+        console.log(convertToSeconds(10));
+        console.log(convertToDays(28));
+    </script>
+
+    <p>Exercice 3 :</p>
+    <script>
+        let salut = "Hello world!";
+        document.write(salut);
+        document.write("<br/>");
+        document.writeln(356);
+        document.write("<br/>");
+        document.writeln("je suis patate");
+        document.write("<br/>");
+
+        let temperature = 10;
+        if(temperature<=18){
+            document.write("Ohlala, il fait froid!");
+        } else if(temperature>18 && temperature < 25) {
+            document.write("Il fait bon!");
+        } else if(temperature >= 25) {
+            document.write("Il fait beaucoup trop chaud!");
+        }
+
+        var i = 0;
+        while(i<100){
+            // document.write("<p>", i, "</p>");
+            i = i+1;
+            console.log(i);
+        } 
+
+        for(j=0;j<=100;j++){
+            console.log(j);
+        }
+    </script>
+
+    <p>Exercice 4 :</p>
+    <script>
+        function fizzbuzz(){
+            for( i=1 ; i<=100; i++){
+                if(i % 3 == 0 && i % 5 == 0){
+                    document.write("FizzBuzz");
+                    document.write("<br/>");
+                } else if(i % 5 == 0){
+                    document.write("Buzz");
+                    document.write("<br/>");
+                } else if(i % 3 == 0){
+                    document.write("Fizz");
+                    document.write("<br/>");
+                } else {
+                    document.write(i);
+                    document.write("<br/>");
+                }
+            }
+        }
+        fizzbuzz();
+    </script>
+
+    <p>Exercice 5 :</p>
+    <script>
+        function addMultiply(arr){
+            let add = 0;
+            let multiply = 1;
+            for(nbr of arr){
+                add = add + nbr;
+            }
+            for(nbr of arr){
+                multiply = multiply * nbr;
+            }
+
+            document.write("La somme est de: ", add);
+            document.write("<br/>");
+            document.write("Le produit est de: ", multiply);
+        }
+
+        addMultiply([2, 5]);
+    </script>
+
+    <p>Exercice 6 :</p>
+    <script>
+        for( i=0 ; i<=15 ; i++ ){
+            if(i%2==0){
+                document.write("Le nombre ", i," est pair.");
+            } else {
+                document.write("Le nombre ", i," est impair.");
+            }
+            document.write("<br/>"); 
+        }
+    </script>
+
+    <p>Exercice 7 :</p>
+    <script>
+        let arrNames = [];
+        function addNames(){
+            let newName = prompt("Quel nom voulez vous ajouter à la liste?");
+            console.log(newName);
+            arrNames.push(newName);
+            console.log(arrNames);
+        }
+        function randomName(arrNames){
+            let randomNbr = Math.floor(Math.random() * Math.floor(arrNames.length));
+            console.log(arrNames[randomNbr]);
+        }
+    </script>
+    <button onClick=addNames()>Ajouter un nom</button>
+    <button onClick=randomName(arrNames)>Tirage au sort</button>
+
+    <p>Exercice 8 :</p>
+    
+    <form name="calc" action="">
+        <input type="text" name="nbr1" id="">
+        <input type="text" name="nbr2" id="">
+        <br/>
+        <input type="button" onClick="add();" value="+">
+        <input type="button" onClick="remove();" value="-">
+        <input type="button" onClick="multiply();" value="*">
+        <br/>
+        <input type="text" name="res">
+    </form>
+    <script>
+        /*let a = document.calc.nbr1.value;
+        let b = document.calc.nbr2.value;*/
+        function add(){
+            var a = document.calc.nbr1.value;
+            var b = document.calc.nbr2.value;
+            var result = parseInt(a)+parseInt(b);
+            console.log(result);
+            document.calc.res.value=result;
+        }
+
+        function remove(){
+            var a = document.calc.nbr1.value;
+            var b = document.calc.nbr2.value;
+            let result = parseInt(a)-parseInt(b);
+            console.log(result);
+            document.calc.res.value=result;
+        }
+
+        function multiply(){
+            var a = document.calc.nbr1.value;
+            var b = document.calc.nbr2.value;
+            let result = parseInt(a)*parseInt(b);
+            console.log(result);
+            document.calc.res.value=result;
+        }
+    </script>
+</body>
+</html>
